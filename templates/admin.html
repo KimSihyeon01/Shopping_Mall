@@ -1,1 +1,32 @@
-#admin file
+<!DOCTYPE html>
+<html>
+<head>
+    <title>관리자 페이지</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>상품 관리</h1>
+
+    <h2>상품 목록</h2>
+    <ul>
+        {% for product in products %}
+            <li>{{ product.name }} - 가격: {{ product.price }}원 - 재고: {{ product.stock }}</li>
+        {% else %}
+            <li>등록된 상품이 없습니다.</li>
+        {% endfor %}
+    </ul>
+
+    <h2>신규 상품 등록</h2>
+    <form method="POST" action="/admin/add">
+        <label>상품명: <input type="text" name="name" required></label><br>
+        <label>가격: <input type="number" name="price" required></label><br>
+        <label>재고: <input type="number" name="stock" required></label><br>
+        <label>설명: <textarea name="description" required></textarea></label><br>
+        <button type="submit">등록</button>
+    </form>
+
+    <br>
+    <a href="/">메인 페이지로 돌아가기</a>
+</body>
+</html>
+

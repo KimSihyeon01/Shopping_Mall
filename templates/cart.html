@@ -1,1 +1,22 @@
-#cart.html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>장바구니</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>장바구니</h1>
+    <ul>
+        {% for item in items %}
+            <li>
+                상품 ID: {{ item.product_id }} / 수량: {{ item.quantity }}
+            </li>
+        {% else %}
+            <li>장바구니가 비어 있습니다.</li>
+        {% endfor %}
+    </ul>
+    <a href="/order">주문하기</a>
+    <br><br>
+    <a href="/">상품 목록으로 돌아가기</a>
+</body>
+</html>
