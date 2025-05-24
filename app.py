@@ -33,6 +33,13 @@ class Order(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
     order_date = db.Column(db.DateTime, default=datetime.utcnow)
 
+@app.before_first_request
+def seed_products():
+    if not Product.query.first():
+        db.session.add(Product(name='Jeans', price=30000, stock=10, description='Basic jeans'))
+        db.session.add(Product(name='T-shirt', price=15000, stock=20, description='White cotton shirt'))
+        db.session.commit()
+
 # ====================== 로그인/회원가입 ======================
 @app.route('/signup', methods=['GET', 'POST'])
 def signup():
@@ -77,7 +84,20 @@ def cart():
     if 'user_id' not in session:
         return redirect('/login')
     items = Cart.query.filter_by(user_id=session['user_id']).all()
-    return render_template('cart.html', items=items)
+    cart_data = []
+    total = 0
+    for item in items:
+        product = Product.query.get(item.product_id)
+        subtotal = product.price * item.quantity
+        cart_data.append({
+            'id': product.id,
+            'name': product.name,
+            'price': product.price,
+            'qty': item.quantity,
+            'subtotal': subtotal
+        })
+        total += subtotal
+    return render_template('cart.html', cart=cart_data, total=total)
 
 @app.route('/cart/add/<int:product_id>')
 def add_to_cart(product_id):
@@ -102,7 +122,7 @@ def order():
         db.session.add(new_order)
         Cart.query.filter_by(user_id=session['user_id']).delete()
         db.session.commit()
-    return redirect('/')
+    return redirect('oreder_complete.html')
 
 # ====================== 관리자 페이지 ======================
 @app.route('/admin')
