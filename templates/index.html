@@ -1,1 +1,32 @@
-#index file
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>쇼핑몰 메인</title>
+</head>
+<body>
+    <h1>상품 목록</h1>
+
+    {% if session.get('user_id') %}
+        <p><a href="/logout">로그아웃</a> | <a href="/cart">장바구니</a> | <a href="/order">주문하기</a></p>
+    {% else %}
+        <p><a href="/login">로그인</a> | <a href="/signup">회원가입</a></p>
+    {% endif %}
+
+    <ul>
+        {% for product in products %}
+            <li>
+                <a href="{{ url_for('product_detail', product_id=product.id) }}">
+                    {{ product.name }} - {{ product.price }}원
+                </a>
+            </li>
+        {% else %}
+            <li>상품이 없습니다.</li>
+        {% endfor %}
+    </ul>
+
+    <hr>
+    <p><a href="/admin">관리자 페이지</a></p>
+</body>
+</html>
+
