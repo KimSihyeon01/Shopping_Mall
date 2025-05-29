@@ -1,10 +1,13 @@
 from flask import Flask, render_template, request, redirect, url_for, session
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
+import os  # 추가
 
-app = Flask(__name__)
-app.secret_key = 'secret-key'  # 세션용
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///instance/shoppingmall.db'
+app = Flask(__name__, template_folder='shopping_mall/templates')
+app.secret_key = 'secret-key'
+
+basedir = os.path.abspath(os.path.dirname(__file__))
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, 'instance', 'shoppingmall.db')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
@@ -32,13 +35,6 @@ class Order(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
     order_date = db.Column(db.DateTime, default=datetime.utcnow)
-
-@app.before_first_request
-def seed_products():
-    if not Product.query.first():
-        db.session.add(Product(name='Jeans', price=30000, stock=10, description='Basic jeans'))
-        db.session.add(Product(name='T-shirt', price=15000, stock=20, description='White cotton shirt'))
-        db.session.commit()
 
 # ====================== 로그인/회원가입 ======================
 @app.route('/signup', methods=['GET', 'POST'])
@@ -122,7 +118,7 @@ def order():
         db.session.add(new_order)
         Cart.query.filter_by(user_id=session['user_id']).delete()
         db.session.commit()
-return render_template('order_complete.html')
+    return render_template('order_complete.html')
 
 # ====================== 관리자 페이지 ======================
 @app.route('/admin')
@@ -143,4 +139,9 @@ def admin_add():
 if __name__ == '__main__':
     with app.app_context():
         db.create_all()
+        # 데이터가 없을 경우만 초기 상품 삽입
+        if not Product.query.first():
+            db.session.add(Product(name='Jeans', price=30000, stock=10, description='Basic jeans'))
+            db.session.add(Product(name='T-shirt', price=15000, stock=20, description='White cotton shirt'))
+            db.session.commit()
     app.run(debug=True)
