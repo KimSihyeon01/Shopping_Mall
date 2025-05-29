@@ -1,1 +1,48 @@
-#database file
+from flask import Flask
+from flask_sqlalchemy import SQLAlchemy
+from datetime import datetime
+
+app = Flask(__name__)
+app.secret_key = 'secret-key'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///shoppingmall.db'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
+db = SQLAlchemy(app)
+
+# ====================== DB 모델 ======================
+class User(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    username = db.Column(db.String(80), unique=True, nullable=False)
+    password = db.Column(db.String(120), nullable=False)
+
+class Product(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(100))
+    price = db.Column(db.Float)
+    stock = db.Column(db.Integer)
+    description = db.Column(db.Text)
+
+class Cart(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    product_id = db.Column(db.Integer, db.ForeignKey('product.id'))
+    quantity = db.Column(db.Integer)
+
+class Order(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    order_date = db.Column(db.DateTime, default=datetime.utcnow)
+
+# ====================== 초기 데이터 추가 ======================
+@app.before_first_request
+def seed_products():
+    if not Product.query.first():
+        db.session.add(Product(name='Jeans', price=30000, stock=10, description='Basic jeans'))
+        db.session.add(Product(name='T-shirt', price=15000, stock=20, description='White cotton shirt'))
+        db.session.commit()
+
+# ====================== DB 생성 ======================
+if __name__ == '__main__':
+    with app.app_context():
+        db.create_all()  # 이걸 실행하면 database.db에 테이블 생성됨
+    app.run(debug=True)

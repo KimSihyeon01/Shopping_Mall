@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# SQLite DB
+*.db
+*.sqlite3
+
+# VS Code 설정 (선택)
+.vscode/
+
+# 환경 설정 파일
+.env
+
+# Byte-compiled / cache
+*.py[cod]
+*$py.class
+
+# Mac, Linux, Windows OS files
+.DS_Store
+Thumbs.db
+
+# Instance or runtime files
+instance/
