@@ -4,7 +4,7 @@ from datetime import datetime
 
 app = Flask(__name__)
 app.secret_key = 'secret-key'  # 세션용
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///shoppingmall.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///instance/shoppingmall.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
@@ -122,7 +122,7 @@ def order():
         db.session.add(new_order)
         Cart.query.filter_by(user_id=session['user_id']).delete()
         db.session.commit()
-    return redirect('oreder_complete.html')
+return render_template('order_complete.html')
 
 # ====================== 관리자 페이지 ======================
 @app.route('/admin')
