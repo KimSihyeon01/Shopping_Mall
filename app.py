@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, redirect, url_for, session
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
-import os  # 추가
+import os
 
 app = Flask(__name__, template_folder='shopping_mall/templates')
 app.secret_key = 'secret-key'
