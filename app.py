@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, redirect, url_for, session
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 import os
+import webbrowser
 
 app = Flask(__name__, template_folder='shopping_mall/templates')
 app.secret_key = 'secret-key'
@@ -139,9 +140,11 @@ def admin_add():
 if __name__ == '__main__':
     with app.app_context():
         db.create_all()
-        # 데이터가 없을 경우만 초기 상품 삽입
         if not Product.query.first():
             db.session.add(Product(name='Jeans', price=30000, stock=10, description='Basic jeans'))
             db.session.add(Product(name='T-shirt', price=15000, stock=20, description='White cotton shirt'))
             db.session.commit()
+    webbrowser.open('http://127.0.0.1:5000')
     app.run(debug=True)
+
+
