@@ -2,11 +2,12 @@ from flask import Flask, render_template, request, redirect, url_for, session
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 import os
-
-app = Flask(__name__, template_folder='shopping_mall/templates')
-app.secret_key = 'secret-key'
+import webbrowser
 
 basedir = os.path.abspath(os.path.dirname(__file__))
+app = Flask(__name__, template_folder=os.path.join(basedir, 'shopping_mall', 'templates'))
+app.secret_key = 'secret-key'
+
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, 'instance', 'shoppingmall.db')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
@@ -139,10 +140,14 @@ def admin_add():
 if __name__ == '__main__':
     with app.app_context():
         db.create_all()
-        # 데이터가 없을 경우만 초기 상품 삽입
         if not Product.query.first():
-            db.session.add(Product(name='Jeans', price=30000, stock=10, description='Basic jeans'))
-            db.session.add(Product(name='T-shirt', price=15000, stock=20, description='White cotton shirt'))
+            db.session.add(Product(name='LG gram pro', price=2500000, stock=7, description='LG gram pro'))
+            db.session.add(Product(name='Galaxy Watch Activate', price=250000, stock=20, description='Galaxy Watch Active'))
+            db.session.add(Product(name='LG OLED TV', price=3400000, stock=12, description='LG OLED TV'))
+            db.session.add(Product(name='Galaxy Tap S10', price=1700000, stock=40, description='Galaxy Tap S10'))
+            db.session.add(Product(name='Galaxy S25 Ultra', price=1100000, stock=31, description='Galaxy S25 Ultra'))
             db.session.commit()
+    webbrowser.open('http://127.0.0.1:5000')
     app.run(debug=True)
+
 

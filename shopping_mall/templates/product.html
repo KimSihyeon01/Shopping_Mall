@@ -1,25 +1,13 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <title>{{ product.name }} - 상세보기</title>
-</head>
-<body>
-    <h1>{{ product.name }}</h1>
-    <p><strong>가격:</strong> {{ product.price }}원</p>
-    <p><strong>재고:</strong> {{ product.stock }}개</p>
-    <p><strong>설명:</strong> {{ product.description }}</p>
+{% extends "base.html" %}
 
-    <hr>
+{% block title %}Product Detail{% endblock %}
 
-    {% if session.get('user_id') %}
-        <a href="{{ url_for('add_to_cart', product_id=product.id) }}">장바구니에 담기</a>
-    {% else %}
-        <p><a href="/login">로그인</a> 후 장바구니에 담을 수 있습니다.</p>
-    {% endif %}
+{% block content %}
+<h1>{{ product.name }}</h1>
+<p>Price: {{ product.price }} KRW</p>
+<p>Stock: {{ product.stock }}</p>
+<p>Description: {{ product.description }}</p>
 
-    <br><br>
-    <a href="{{ url_for('index') }}">← 상품 목록으로 돌아가기</a>
-</body>
-</html>
-
+<a href="/cart/add/{{ product.id }}">Add to Cart</a><br><br>
+<a href="/">Back to Product List</a>
+{% endblock %}
