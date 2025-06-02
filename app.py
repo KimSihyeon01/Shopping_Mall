@@ -27,6 +27,7 @@ class Product(db.Model):
     price = db.Column(db.Float)
     stock = db.Column(db.Integer)
     description = db.Column(db.Text)
+    image = db.Column(db.String(200))
 
 class Cart(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -135,7 +136,8 @@ def admin_add():
     price = float(request.form['price'])
     stock = int(request.form['stock'])
     desc = request.form['description']
-    db.session.add(Product(name=name, price=price, stock=stock, description=desc))
+    image = request.form['image']  # ← 추가
+    db.session.add(Product(name=name, price=price, stock=stock, description=desc, image=image))
     db.session.commit()
     return redirect('/admin')
 
@@ -143,12 +145,13 @@ if __name__ == '__main__':
     with app.app_context():
         db.create_all()
         if not Product.query.first():
-            db.session.add(Product(name='LG gram pro', price=2500000, stock=7, description='LG gram pro'))
-            db.session.add(Product(name='Galaxy Watch Activate', price=250000, stock=20, description='Galaxy Watch Active'))
-            db.session.add(Product(name='LG OLED TV', price=3400000, stock=12, description='LG OLED TV'))
-            db.session.add(Product(name='Galaxy Tap S10', price=1700000, stock=40, description='Galaxy Tap S10'))
-            db.session.add(Product(name='Galaxy S25 Ultra', price=1100000, stock=31, description='Galaxy S25 Ultra'))
+            db.session.add(Product(name='LG gram pro', price=2500000, stock=7, description='LG gram pro', image='LG_gram_pro.jpeg'))
+            db.session.add(Product(name='Galaxy Watch Activate', price=250000, stock=20, description='Galaxy Watch Active', image='Galaxy_Watch_Activate.jpeg'))
+            db.session.add(Product(name='LG OLED TV', price=3400000, stock=12, description='LG OLED TV', image='LG_OLED_TV.jpeg'))
+            db.session.add(Product(name='Galaxy Tap S10', price=1700000, stock=40, description='Galaxy Tap S10', image='Galaxy_Tap_S10.jpeg'))
+            db.session.add(Product(name='Galaxy S25 Ultra', price=1100000, stock=31, description='Galaxy S25 Ultra', image='Galaxy_S25_Ultra.jpg'))
             db.session.commit()
+
     webbrowser.open('http://127.0.0.1:5000')
     app.run(debug=True)
 

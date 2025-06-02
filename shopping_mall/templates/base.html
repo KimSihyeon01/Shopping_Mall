@@ -7,19 +7,25 @@
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-  <header>
-    <div class="container">
-      <a href="{{ url_for('index') }}" class="logo">My Shop</a>
-      <nav>
-        <ul>
-          <li><a href="{{ url_for('index') }}">Home</a></li>
-          <li><a href="{{ url_for('cart') }}">Cart</a></li>
-          <li><a href="{{ url_for('order') }}">Order</a></li>
-          <li><a href="{{ url_for('admin') }}">Admin</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+<header>
+  <div class="container">
+    <a href="{{ url_for('index') }}" class="logo">My Shop</a>
+    <nav>
+      <ul>
+        <li><a href="{{ url_for('index') }}">Home</a></li>
+        <li><a href="{{ url_for('cart') }}">Cart</a></li>
+        <li><a href="{{ url_for('order') }}">Order</a></li>
+        <li><a href="{{ url_for('admin') }}">Admin</a></li>
+        {% if session.get('user_id') %}
+          <li><a href="{{ url_for('logout') }}">Log Out</a></li>
+        {% else %}
+          <li><a href="{{ url_for('login') }}">Log In</a></li>
+          <li><a href="{{ url_for('signup') }}">Sign Up</a></li>
+        {% endif %}
+      </ul>
+    </nav>
+  </div>
+</header>
 
   <main class="container">
     {% block content %}{% endblock %}

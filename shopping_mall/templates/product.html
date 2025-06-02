@@ -3,7 +3,8 @@
 
 {% block content %}
 <div class="product-detail">
-  <img src="{{ url_for('static', filename='images/' + (product.image or 'noimage.jpg')) }}" alt="{{ product.name }}" style="width: 300px; height: auto; display: block; margin-bottom: 20px;">
+<img src="{{ url_for('static', filename='image/' + (product.image or 'noimage.jpeg')) }}" alt="{{ product.name }}" style="width: 300px; height: auto; display: block; margin: 0 auto;">
+
   <h2>{{ product.name }}</h2>
   <p>{{ product.description }}</p>
   <p><strong>Price:</strong> {{ product.price }}원</p>
