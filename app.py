@@ -5,7 +5,9 @@ import os
 import webbrowser
 
 basedir = os.path.abspath(os.path.dirname(__file__))
-app = Flask(__name__, template_folder=os.path.join(basedir, 'shopping_mall', 'templates'))
+app = Flask(__name__,
+            template_folder='shopping_mall/templates',
+            static_folder='shopping_mall/static')
 app.secret_key = 'secret-key'
 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, 'instance', 'shoppingmall.db')

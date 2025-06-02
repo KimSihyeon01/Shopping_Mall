@@ -7,8 +7,6 @@
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-
-  <!-- Header -->
   <header>
     <div class="container">
       <a href="{{ url_for('index') }}" class="logo">My Shop</a>
@@ -23,18 +21,14 @@
     </div>
   </header>
 
-  <!-- Main Content -->
   <main class="container">
-    {% block content %}
-    {% endblock %}
+    {% block content %}{% endblock %}
   </main>
 
-  <!-- Footer -->
   <footer>
     <div class="container">
-      &copy; 2025 My Shop. All rights reserved.
+      © 2025 <strong>My Shop</strong>. All rights reserved.
     </div>
   </footer>
-
 </body>
 </html>
