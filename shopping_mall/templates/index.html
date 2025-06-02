@@ -1,32 +1,28 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <title>쇼핑몰 메인</title>
-</head>
-<body>
-    <h1>상품 목록</h1>
+{% extends "base.html" %}
 
-    {% if session.get('user_id') %}
-        <p><a href="/logout">로그아웃</a> | <a href="/cart">장바구니</a> | <a href="/order">주문하기</a></p>
+{% block title %}Main Page{% endblock %}
+
+{% block content %}
+<h1>Product List</h1>
+
+{% if session.get('user_id') %}
+    <p><a href="/logout">Log Out</a> | <a href="/cart">Cart</a> | <a href="/order">Order Now</a></p>
+{% else %}
+    <p><a href="/login">Log In</a> | <a href="/signup">Sign Up</a></p>
+{% endif %}
+
+<ul>
+    {% for product in products %}
+        <li>
+            <a href="{{ url_for('product_detail', product_id=product.id) }}">
+                {{ product.name }} - {{ product.price }} KRW
+            </a>
+        </li>
     {% else %}
-        <p><a href="/login">로그인</a> | <a href="/signup">회원가입</a></p>
-    {% endif %}
+        <li>No products available.</li>
+    {% endfor %}
+</ul>
 
-    <ul>
-        {% for product in products %}
-            <li>
-                <a href="{{ url_for('product_detail', product_id=product.id) }}">
-                    {{ product.name }} - {{ product.price }}원
-                </a>
-            </li>
-        {% else %}
-            <li>상품이 없습니다.</li>
-        {% endfor %}
-    </ul>
-
-    <hr>
-    <p><a href="/admin">관리자 페이지</a></p>
-</body>
-</html>
-
+<hr>
+<p><a href="/admin">Go to Admin Page</a></p>
+{% endblock %}

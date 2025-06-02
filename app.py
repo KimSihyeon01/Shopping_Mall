@@ -4,10 +4,10 @@ from datetime import datetime
 import os
 import webbrowser
 
-app = Flask(__name__, template_folder='shopping_mall/templates')
+basedir = os.path.abspath(os.path.dirname(__file__))
+app = Flask(__name__, template_folder=os.path.join(basedir, 'shopping_mall', 'templates'))
 app.secret_key = 'secret-key'
 
-basedir = os.path.abspath(os.path.dirname(__file__))
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, 'instance', 'shoppingmall.db')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 

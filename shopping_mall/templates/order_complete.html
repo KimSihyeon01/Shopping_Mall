@@ -1,45 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8" />
-    <title>Order Complete</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 40px;
-            text-align: center;
-        }
-        .container {
-            max-width: 500px;
-            margin: auto;
-            padding: 30px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            background-color: #f9f9f9;
-        }
-        h1 {
-            color: #4CAF50;
-        }
-        a.button {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 12px 25px;
-            background-color: #4CAF50;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-        }
-        a.button:hover {
-            background-color: #45a049;
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <h1> 주문이 완료되었습니다!</h1>
-        <p>감사합니다. 주문이 정상적으로 접수되었습니다.</p>
-        <a href="{{ url_for('index') }}" class="button">쇼핑 계속하기</a>
-        <a href="{{ url_for('cart') }}" class="button" style="background-color: #2196F3; margin-left: 10px;">장바구니 보기</a>
-    </div>
-</body>
-</html>
+{% extends "base.html" %}
+
+{% block title %}Order Complete{% endblock %}
+
+{% block content %}
+<h1>Order Completed</h1>
+<p>Your order has been successfully placed.</p>
+<a href="/">Back to Main Page</a>
+{% endblock %}
