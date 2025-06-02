@@ -1,10 +1,9 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>{% block title %}쇼핑몰{% endblock %}</title>
+  <title>{% block title %}Shopping Mall{% endblock %}</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- 스타일 시트 연결 -->
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
@@ -15,10 +14,10 @@
       <a href="{{ url_for('index') }}" class="logo">My Shop</a>
       <nav>
         <ul>
-          <li><a href="{{ url_for('index') }}">홈</a></li>
-          <li><a href="{{ url_for('cart') }}">장바구니</a></li>
-          <li><a href="{{ url_for('order_list') }}">주문내역</a></li>
-          <li><a href="{{ url_for('admin') }}">관리자</a></li>
+          <li><a href="{{ url_for('index') }}">Home</a></li>
+          <li><a href="{{ url_for('cart') }}">Cart</a></li>
+          <li><a href="{{ url_for('order') }}">Order</a></li>
+          <li><a href="{{ url_for('admin') }}">Admin</a></li>
         </ul>
       </nav>
     </div>
@@ -27,7 +26,6 @@
   <!-- Main Content -->
   <main class="container">
     {% block content %}
-    <!-- 페이지별 콘텐츠가 여기에 들어감 -->
     {% endblock %}
   </main>
 
