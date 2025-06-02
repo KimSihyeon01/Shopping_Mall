@@ -1,126 +1,95 @@
-/* static/style.css - 쇼핑몰 웹사이트 공통 스타일 */
-
-/* Reset & Global */
+/* Reset */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+
+/* Body & Container */
 body {
-  font-family: 'Noto Sans KR', sans-serif;
-  background-color: #f4f4f4;
-  color: #333;
+  font-family: 'Segoe UI', 'Noto Sans KR', sans-serif;
+  background-color: #f9f9f9;
+  color: #222;
 }
 .container {
-  max-width: 1200px;
-  width: 90%;
-  margin: 30px auto;
-  padding: 0 10px;
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 20px;
 }
 
 /* Header */
 header {
-  background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  background-color: #343a40;
+  color: white;
+  padding: 20px 0;
 }
 header .container {
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  padding: 15px 0;
+  align-items: center;
 }
 header .logo {
   font-size: 1.8rem;
   font-weight: bold;
-  color: #007bff;
+  color: #ffc107;
   text-decoration: none;
 }
 nav ul {
-  list-style: none;
   display: flex;
-  gap: 20px;
+  list-style: none;
+  gap: 15px;
 }
 nav a {
+  color: white;
   text-decoration: none;
-  color: #555;
   font-weight: 500;
 }
 nav a:hover {
-  color: #007bff;
+  text-decoration: underline;
+  color: #ffc107;
 }
 
 /* Footer */
 footer {
+  background-color: #343a40;
+  color: #ccc;
   text-align: center;
-  padding: 20px 0;
-  background-color: #fff;
-  margin-top: 50px;
+  padding: 15px 0;
   font-size: 14px;
-  color: #777;
-  box-shadow: 0 -2px 4px rgba(0,0,0,0.05);
+  margin-top: 50px;
 }
 
 /* Buttons */
 .btn {
-  display: inline-block;
   padding: 10px 20px;
-  background-color: #007bff;
-  color: #fff;
+  background: #28a745;
+  color: white;
+  border: none;
   border-radius: 4px;
   text-decoration: none;
-  text-align: center;
-  transition: background-color 0.2s ease;
-  border: none;
   cursor: pointer;
+  transition: background 0.3s ease;
 }
 .btn:hover {
-  background-color: #0056b3;
-}
-
-/* Forms */
-form {
-  background-color: #fff;
-  padding: 25px;
-  border-radius: 6px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  margin-bottom: 30px;
-}
-.form-group {
-  margin-bottom: 15px;
-}
-.form-group label {
-  display: block;
-  margin-bottom: 6px;
-  font-weight: 500;
-}
-.form-group input,
-.form-group select,
-.form-group textarea {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 14px;
-}
-.form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus {
-  outline: none;
-  border-color: #007bff;
+  background: #218838;
 }
 
 /* Product List */
 .product-list {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 30px;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 20px;
+  margin-top: 30px;
 }
 .product-item {
-  background-color: #fff;
-  border-radius: 6px;
+  background: white;
+  border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  text-align: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+}
+.product-item:hover {
+  transform: translateY(-5px);
 }
 .product-item img {
   width: 100%;
@@ -135,55 +104,58 @@ form {
   margin-bottom: 10px;
 }
 .product-item .info p {
-  font-size: 1rem;
+  font-size: 0.95rem;
+  color: #666;
+}
+
+/* Form */
+form {
+  background: white;
+  padding: 25px;
+  border-radius: 6px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  margin-bottom: 30px;
+}
+.form-group {
   margin-bottom: 15px;
+}
+.form-group label {
+  font-weight: 500;
+  display: block;
+  margin-bottom: 6px;
+}
+.form-group input,
+.form-group textarea,
+.form-group select {
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+.form-group input:focus {
+  border-color: #007bff;
 }
 
 /* Cart Table */
 .cart-table {
   width: 100%;
   border-collapse: collapse;
-  margin-bottom: 30px;
 }
 .cart-table th,
 .cart-table td {
   padding: 12px;
-  border: 1px solid #e0e0e0;
   text-align: center;
+  border: 1px solid #ddd;
 }
 .cart-table th {
-  background-color: #f0f0f0;
-  font-weight: 600;
+  background-color: #f1f1f1;
 }
 
-/* Admin Area */
-.admin-container {
-  background-color: #fff;
-  padding: 30px;
-  border-radius: 6px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  margin-bottom: 40px;
-}
-.admin-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-bottom: 30px;
-}
-.admin-table th,
-.admin-table td {
-  padding: 12px;
-  border: 1px solid #e0e0e0;
-  text-align: left;
-}
-.admin-table th {
-  background-color: #f0f0f0;
-  font-weight: 600;
-}
-
-/* Auth Forms */
+/* Auth Form */
 .auth-form {
   max-width: 400px;
-  margin: 40px auto;
+  margin: 50px auto;
 }
 .auth-form h2 {
   text-align: center;
@@ -198,11 +170,6 @@ form {
 }
 .order-complete h2 {
   font-size: 2rem;
+  color: #28a745;
   margin-bottom: 20px;
 }
-.order-complete p {
-  font-size: 1rem;
-  margin-bottom: 30px;
-}
-
-#Style file
