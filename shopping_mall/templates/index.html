@@ -1,29 +1,21 @@
-{% extends 'base.html' %}
-
+{% extends "base.html" %}
 {% block title %}Product List{% endblock %}
-
 {% block content %}
-  <h1>Product List</h1>
 
-  {% if session.get('user_id') %}
-    <p><a href="/logout">Log Out</a></p>
-  {% else %}
-    <p><a href="/login">Log In</a> | <a href="/signup">Sign Up</a></p>
-  {% endif %}
+<h1>Product List</h1>
 
-  <div class="product-list">
-    {% for product in products %}
-      <div class="product-item">
-        <img src="{{ product.image or url_for('static', filename='placeholder.jpg') }}" alt="Product Image">
-        <div class="info">
-          <h3>{{ product.name }}</h3>
-          <p class="price">{{ product.price }} KRW</p>
-          <p>{{ product.description }}</p>
-          <a href="{{ url_for('product_detail', product_id=product.id) }}" class="btn">Details</a>
-        </div>
-      </div>
-    {% else %}
-      <p>No products available.</p>
-    {% endfor %}
+<div class="product-list">
+  {% for product in products %}
+  <div class="product-item">
+    <img src="{{ url_for('static', filename='images/default.jpg') }}" alt="Product Image">
+    <div class="info">
+      <h3>{{ product.name }}</h3>
+      <p>{{ product.price }} KRW</p>
+      <p>{{ product.description }}</p>
+      <a href="{{ url_for('product_detail', product_id=product.id) }}">details</a>
+    </div>
   </div>
+  {% endfor %}
+</div>
+
 {% endblock %}
