@@ -1,4 +1,4 @@
-#!/home/oss/Shopping_Mall/venv/bin/python3
+#!/home/kyh/Shopping_Mall/venv/bin/python3
 # -*- coding: utf-8 -*-
 import re
 import sys
