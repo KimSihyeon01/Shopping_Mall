@@ -1,13 +1,14 @@
 {% extends "base.html" %}
-
-{% block title %}Product Detail{% endblock %}
+{% block title %}{{ product.name }}{% endblock %}
 
 {% block content %}
-<h1>{{ product.name }}</h1>
-<p>Price: {{ product.price }} KRW</p>
-<p>Stock: {{ product.stock }}</p>
-<p>Description: {{ product.description }}</p>
+<div class="product-detail">
+  <img src="{{ url_for('static', filename='images/' + (product.image or 'noimage.jpg')) }}" alt="{{ product.name }}" style="width: 300px; height: auto; display: block; margin-bottom: 20px;">
+  <h2>{{ product.name }}</h2>
+  <p>{{ product.description }}</p>
+  <p><strong>Price:</strong> {{ product.price }}원</p>
+  <p><strong>Stock:</strong> {{ product.stock }}</p>
 
-<a href="/cart/add/{{ product.id }}">Add to Cart</a><br><br>
-<a href="/">Back to Product List</a>
+  <a href="{{ url_for('add_to_cart', product_id=product.id) }}" class="btn">Add to Cart</a>
+</div>
 {% endblock %}

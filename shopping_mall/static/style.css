@@ -1,22 +1,26 @@
-/* Reset */
+/* ======================== Reset ======================== */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Body & Container */
 body {
   font-family: 'Segoe UI', 'Noto Sans KR', sans-serif;
-  background-color: #f9f9f9;
-  color: #222;
+  background-color: #f4f6f9;
+  color: #333;
+  line-height: 1.6;
 }
+
 .container {
-  max-width: 1140px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
 }
 
+<<<<<<< HEAD
+/* ======================== Header ======================== */
+=======
 <<<<<<< HEAD
 a:hover {
   text-decoration: none;
@@ -34,46 +38,58 @@ a:hover {
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.19);
 =======
 /* Header */
+>>>>>>> main
 header {
-  background-color: #343a40;
+  background-color: #212529;
   color: white;
   padding: 20px 0;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
+
 header .container {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
+
 header .logo {
   font-size: 1.8rem;
   font-weight: bold;
   color: #ffc107;
   text-decoration: none;
 }
+
+nav {
+  margin-left: auto;
+}
+
 nav ul {
   display: flex;
   list-style: none;
-  gap: 15px;
+  gap: 20px;
 }
+
 nav a {
   color: white;
   text-decoration: none;
   font-weight: 500;
+  font-size: 1rem;
+  transition: color 0.3s;
 }
+
 nav a:hover {
-  text-decoration: underline;
   color: #ffc107;
 >>>>>>> c5bb95ea9c59aef0e5efb0e77978beaca0a3d369
 }
 
-/* Footer */
+/* ======================== Footer ======================== */
 footer {
-  background-color: #343a40;
+  background-color: #212529;
   color: #ccc;
   text-align: center;
-  padding: 15px 0;
-  font-size: 14px;
-<<<<<<< HEAD
+  padding: 20px 0;
+  font-size: 0.9rem;
+  margin-top: 60px;
   color: #777;
   box-shadow: 1px 0 2px 0 rgba(0, 0, 0, 0.2), 1px 0 5px 0 rgba(0, 0, 0, 0.19);
 }
@@ -152,9 +168,10 @@ form .btn {
   border-radius: 5px;
 =======
   margin-top: 50px;
+>>>>>>> main
 }
 
-/* Buttons */
+/* ======================== Buttons ======================== */
 .btn {
   padding: 10px 20px;
   background: #28a745;
@@ -165,7 +182,11 @@ form .btn {
 >>>>>>> c5bb95ea9c59aef0e5efb0e77978beaca0a3d369
   cursor: pointer;
   transition: background 0.3s ease;
+  display: inline-block;
 }
+<<<<<<< HEAD
+
+=======
 <<<<<<< HEAD
 
 /* Image Wrapper */
@@ -178,34 +199,74 @@ form .btn {
   width: 150px;
   height: 150px;
 =======
+>>>>>>> main
 .btn:hover {
   background: #218838;
 }
 
-/* Product List */
+.btn-view {
+  padding: 8px 14px;
+  background-color: #007bff;
+  color: #fff;
+  border-radius: 4px;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 0.9rem;
+  margin-top: 10px;
+}
+
+.btn-view:hover {
+  background-color: #0056b3;
+}
+
+/* ======================== Product List ======================== */
 .product-list {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-  gap: 20px;
-  margin-top: 30px;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+  margin-top: 40px;
 }
+
 .product-item {
-  background: white;
-  border-radius: 8px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
   overflow: hidden;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s;
+  transition: transform 0.2s, box-shadow 0.2s;
 }
+
 .product-item:hover {
   transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
 }
+
 .product-item img {
   width: 100%;
   height: 200px;
 >>>>>>> c5bb95ea9c59aef0e5efb0e77978beaca0a3d369
   object-fit: cover;
+  background-color: #eee;
 }
 
+<<<<<<< HEAD
+.product-item .info {
+  padding: 15px;
+}
+
+.product-item .info h3 {
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+  color: #333;
+}
+
+.product-item .info .price {
+  color: #dc3545;
+  font-weight: bold;
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+=======
 /* Cart Summary */
 .check {
   max-width: 300px;
@@ -222,28 +283,37 @@ form .btn {
 .checked {
   color: orange;
 =======
+>>>>>>> main
 .product-item .info p {
   font-size: 0.95rem;
   color: #666;
 }
 
-/* Form */
+/* ======================== Forms ======================== */
 form {
   background: white;
   padding: 25px;
   border-radius: 6px;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-  margin-bottom: 30px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+  margin-bottom: 40px;
 }
+
 .form-group {
+<<<<<<< HEAD
+  margin-bottom: 18px;
+=======
   margin-bottom: 15px;
 >>>>>>> c5bb95ea9c59aef0e5efb0e77978beaca0a3d369
+>>>>>>> main
 }
+
 .form-group label {
   font-weight: 500;
   display: block;
-  margin-bottom: 6px;
+  margin-bottom: 8px;
+  color: #444;
 }
+
 .form-group input,
 .form-group textarea,
 .form-group select {
@@ -253,10 +323,17 @@ form {
   border: 1px solid #ccc;
   border-radius: 4px;
 }
-.form-group input:focus {
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
   border-color: #007bff;
+  outline: none;
 }
 
+<<<<<<< HEAD
+/* ======================== Cart Table ======================== */
+=======
 <<<<<<< HEAD
 /* Details Section */
 .details {
@@ -270,36 +347,47 @@ form {
   }
 =======
 /* Cart Table */
+>>>>>>> main
 .cart-table {
   width: 100%;
   border-collapse: collapse;
+  margin-top: 20px;
 }
+
 .cart-table th,
 .cart-table td {
   padding: 12px;
   text-align: center;
   border: 1px solid #ddd;
 }
+
 .cart-table th {
-  background-color: #f1f1f1;
+  background-color: #f8f9fa;
+  color: #333;
 }
 
-/* Auth Form */
+/* ======================== Auth Pages ======================== */
 .auth-form {
   max-width: 400px;
-  margin: 50px auto;
+  margin: 60px auto;
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
+
 .auth-form h2 {
   text-align: center;
   margin-bottom: 20px;
   color: #007bff;
 }
 
-/* Order Complete */
+/* ======================== Order Complete ======================== */
 .order-complete {
   text-align: center;
   margin: 60px 0;
 }
+
 .order-complete h2 {
   font-size: 2rem;
   color: #28a745;
