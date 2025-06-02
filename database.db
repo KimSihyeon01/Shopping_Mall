@@ -33,16 +33,6 @@ class Order(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
     order_date = db.Column(db.DateTime, default=datetime.utcnow)
 
-# ====================== 초기 데이터 추가 ======================
-@app.before_first_request
-def seed_products():
-    if not Product.query.first():
-        db.session.add(Product(name='Jeans', price=30000, stock=10, description='Basic jeans'))
-        db.session.add(Product(name='T-shirt', price=15000, stock=20, description='White cotton shirt'))
-        db.session.add(Product(name='Sneakers', price=55000, stock=15, description='Comfortable running shoes'))
-        db.session.add(Product(name='Hoodie', price=40000, stock=12, description='Warm and stylish hoodie'))
-        db.session.add(Product(name='Backpack', price=45000, stock=8, description='Durable school backpack'))
-        db.session.commit()
 # ====================== DB 생성 ======================
 if __name__ == '__main__':
     with app.app_context():
