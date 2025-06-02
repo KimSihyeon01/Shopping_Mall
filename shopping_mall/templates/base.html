@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>{% block title %}쇼핑몰{% endblock %}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- 스타일 시트 연결 -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <a href="{{ url_for('index') }}" class="logo">My Shop</a>
+      <nav>
+        <ul>
+          <li><a href="{{ url_for('index') }}">홈</a></li>
+          <li><a href="{{ url_for('cart') }}">장바구니</a></li>
+          <li><a href="{{ url_for('order_list') }}">주문내역</a></li>
+          <li><a href="{{ url_for('admin') }}">관리자</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="container">
+    {% block content %}
+    <!-- 페이지별 콘텐츠가 여기에 들어감 -->
+    {% endblock %}
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      &copy; 2025 My Shop. All rights reserved.
+    </div>
+  </footer>
+
+</body>
+</html>
