@@ -1,11 +1,29 @@
-blinker==1.9.0
-click==8.2.1
-Flask==3.1.1
-Flask-SQLAlchemy==3.1.1
-greenlet==3.2.2
-itsdangerous==2.2.0
-Jinja2==3.1.6
-MarkupSafe==3.0.2
-SQLAlchemy==2.0.41
-typing_extensions==4.13.2
-Werkzeug==3.1.3
+# 1. Related Works
+
+## Juhan034
+- [Flask-O-shop](https://github.com/diwash007/Flask-O-shop)
+- E-commerce project using Flask with Stripe integration.
+
+# 2. Feature Summary
+
+- User authentication
+- Product management
+- Cart system
+
+# 3. Technologies
+
+- Python 3.11
+- Flask
+- SQLite
+- HTML/CSS
+
+# 4. Functional Requirements
+
+- Users can register and log in.
+- Users can add items to the cart.
+- Admins can manage products.
+
+# 5. Non-Functional Requirements
+
+- Response time within 1 second.
+- Mobile responsive design.
