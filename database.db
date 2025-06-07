@@ -33,8 +33,3 @@ class Order(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
     order_date = db.Column(db.DateTime, default=datetime.utcnow)
 
-# ====================== DB 생성 ======================
-if __name__ == '__main__':
-    with app.app_context():
-        db.create_all()  
-    app.run(debug=True)
