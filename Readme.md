@@ -1,45 +1,64 @@
-Project Introduction
+PROJECT INTRODUCTION
 
-Online Shopping Mall Web Application Development
+ONLINE SHOPPING MALL WEB APPLICATION DEVELOPMENT
 
 Modern consumers demand the ability to browse and purchase a wide range of products conveniently, regardless of time or location. This project aims to build an online shopping mall specializing in electronic devices, delivering users an intuitive and engaging shopping experience.
 
-Main Objectives
+MAIN OBJECTIVES
 
-Maximize User Convenience: Implement responsive design to ensure a consistent, optimized UI/UX across desktop, tablet, and mobile devices.
+MAXIMIZE USER CONVENIENCE
 
-Enhance Administrative Efficiency: Provide an admin dashboard for seamless product management (create, update, delete), order tracking, and user management.
+Implement responsive design for consistent, optimized UI/UX across desktop, tablet, and mobile devices.
 
-Ensure Reliable Data Management: Utilize a SQLite database (db.sqlite3) to securely store and retrieve product details, member information, and order history.
+ENHANCE ADMINISTRATIVE EFFICIENCY
 
-Build an Extensible Architecture: Leverage the Flask framework to facilitate future feature expansions and external API integrations.
+Provide an admin dashboard for seamless product management: create, update, delete.
 
-Key Features
+Streamline order tracking and user management workflows.
 
-Product Listings & Detail Pages: Enable category filtering and keyword search for quick access to desired electronic products.
+ENSURE RELIABLE DATA MANAGEMENT
 
-Shopping Cart & Order Processing: Calculate quantities and prices in real time and guide users smoothly from cart to order confirmation.
+Utilize a SQLite database (db.sqlite3) to securely store and retrieve product details, member information, and order history.
 
-User Authentication: Offer registration, login, and logout functionality for personalized shopping experiences.
+BUILD AN EXTENSIBLE ARCHITECTURE
 
-Admin Dashboard: Centralize core operations—product management, order oversight, and member administration—into a single interface.
+Leverage the Flask framework to facilitate future feature expansions and external API integrations.
 
-Technology Stack
+KEY FEATURES
 
-Backend: Python 3.x, Flask
+PRODUCT LISTINGS & DETAIL PAGES
 
-Frontend: HTML5, CSS3 (style.css), Jinja2 Templates
+Category filtering and keyword search for quick product discovery.
 
-Database: SQLite
+SHOPPING CART & ORDER PROCESSING
 
-Environment Management: Python virtual environment (venv), Flask instance directory
+Real-time calculation of quantities and prices; smooth transition from cart to confirmation.
 
-Version Control: Git & GitHub
+USER AUTHENTICATION
 
-Expected Benefits
+Registration, login, and logout for personalized experiences.
 
-Increase customer satisfaction through an intuitive UI/UX designed for electronic device shopping and reduce maintenance costs by streamlining administrative workflows.
+ADMIN DASHBOARD
 
-Establish a modular, scalable platform capable of evolving to include new product categories, external payment gateways, and integrated marketing tools.
+Centralized interface for product management, order oversight, and member administration.
 
-execute: 1. python3 -m venv venv 2. pip install -r requireents.txt 3. mkdir instance 4. shoppingmall.db automatically generated on first run
+TECHNOLOGY STACK
+
+BACKEND: Python 3.x, Flask
+
+FRONTEND: HTML5, CSS3 (style.css), Jinja2 templates
+
+DATABASE: SQLite
+
+ENVIRONMENT MANAGEMENT: Python virtual environment (venv), Flask instance/ directory
+
+VERSION CONTROL: Git & GitHub
+
+EXPECTED BENEFITS
+
+ELEVATED CUSTOMER SATISFACTION: Intuitive UI/UX tailored for electronic device shopping.
+
+COST REDUCTION: Streamlined admin workflows lower maintenance overhead.
+
+SCALABLE PLATFORM: Modular design supports new categories, payment gateways, and marketing tool integrations.
+
