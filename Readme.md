@@ -41,3 +41,5 @@ Expected Benefits
 Increase customer satisfaction through an intuitive UI/UX designed for electronic device shopping and reduce maintenance costs by streamlining administrative workflows.
 
 Establish a modular, scalable platform capable of evolving to include new product categories, external payment gateways, and integrated marketing tools.
+
+execute: 1. python3 -m venv venv 2. pip install -r requireents.txt 3. mkdir instance 4. shoppingmall.db automatically generated on first run
