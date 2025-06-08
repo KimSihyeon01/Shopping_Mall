@@ -62,3 +62,5 @@ COST REDUCTION: Streamlined admin workflows lower maintenance overhead.
 
 SCALABLE PLATFORM: Modular design supports new categories, payment gateways, and marketing tool integrations.
 
+Execute: 1: Python3 -m venv venv, 2: install -r requirements.txt, 3: mkdir instance, 4: shoppingmall.db automatically create on first run
+
